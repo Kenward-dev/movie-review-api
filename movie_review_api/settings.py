@@ -20,7 +20,7 @@ OMDB_API_KEY = os.environ.get('OMDB_API_KEY')
 
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = [movie-review-l3sf7g2t9-kenwards-projects.vercel.app, movie-review-api-umber.vercel.app]
+ALLOWED_HOSTS = ['movie-review-l3sf7g2t9-kenwards-projects.vercel.app', 'movie-review-api-umber.vercel.app']
 
 #Google OAuth settings
 GOOGLE_CLIENT_ID = os.environ.get('GOOGLE_CLIENT_ID')
