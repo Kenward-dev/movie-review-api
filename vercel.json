@@ -19,5 +19,16 @@
     ],
     "env": {
         "DJANGO_SETTINGS_MODULE": "movie_review_api.settings"
-    }
+    },
+    "headers": [
+        {
+            "source": "/static/(.*)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=31536000, immutable"
+                }
+            ]
+        }
+    ]
 }
