@@ -34,17 +34,14 @@ class GoogleAuthView(APIView):
                 settings.GOOGLE_CLIENT_ID
             )
             
-            # Check if the token is issued for our app
             if idinfo['aud'] != settings.GOOGLE_CLIENT_ID:
                 return Response(
                     {"detail": "Invalid token"}, 
                     status=status.HTTP_400_BAD_REQUEST
                 )
                 
-            # Get user email
             email = idinfo['email']
             
-            # Create or get user
             user, created = User.objects.get_or_create(
                 email=email,
                 defaults={
@@ -53,7 +50,6 @@ class GoogleAuthView(APIView):
                 }
             )
             
-            # Generate token
             refresh = RefreshToken.for_user(user)
             
             return Response({
