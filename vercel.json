@@ -19,8 +19,5 @@
     ],
     "env": {
         "DJANGO_SETTINGS_MODULE": "movie_review_api.settings"
-    },
-    "scripts": {
-        "build": "python manage.py collectstatic --noinput"
     }
 }
