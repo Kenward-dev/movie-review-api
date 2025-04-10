@@ -20,7 +20,7 @@ OMDB_API_KEY = os.environ.get('OMDB_API_KEY')
 
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['movie-review-l3sf7g2t9-kenwards-projects.vercel.app', 'movie-review-api-umber.vercel.app']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 #Google OAuth settings
 GOOGLE_CLIENT_ID = os.environ.get('GOOGLE_CLIENT_ID')
@@ -91,12 +91,8 @@ WSGI_APPLICATION = 'movie_review_api.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': os.environ.get('DB_ENGINE'),
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': os.environ.get('DB_HOST'),
-        'OPTIONS': {'sslmode': os.environ.get('DB_SSL_MODE')},
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 # Django REST Framework settings
@@ -167,12 +163,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL ='static/'
-STATIC_ROOT = BASE_DIR /'staticfiles'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATICFILES_FINDERS = [
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-]
+
 
 
 # Default primary key field type
